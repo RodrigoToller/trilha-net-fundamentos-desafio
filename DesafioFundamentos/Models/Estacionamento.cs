@@ -6,6 +6,9 @@ namespace DesafioFundamentos.Models
     {
         private decimal precoInicial = 0;
         private decimal precoPorHora = 0;
+
+
+        //Padrões de Placas adicionados para evitar erros de digitação da placa do veiculo
         string placaPadrãoMercosul = @"^[A-Za-z]{3}\d[A-Za-z]\d{2}$";
         string placaPadrãoAntigo = @"^[A-Za-z]{3}\d{4}$";
         private List<string> veiculos = new List<string>();
@@ -18,15 +21,17 @@ namespace DesafioFundamentos.Models
 
         public void AdicionarVeiculo()
         {   
+            //While verifica se a Entrada esta de acordo com o Padrão
             while(true){
 
+                // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
+                // *IMPLEMENTE AQUI*
                 Console.WriteLine("Digite a placa do veículo para estacionar:");
                 Console.WriteLine("Modelo Antigo: AAA-0000, Modelo Novo Mercosul: AAA0A00 ");
                 Console.WriteLine("\nOu entre com 0 para sair");
                 string placaTempInput = Console.ReadLine();
                 
-                // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
-                // *IMPLEMENTE AQUI*
+             
                 if (placaTempInput == "0")
                 {
                     Console.WriteLine("Você saiu do cadastro!");
@@ -63,14 +68,13 @@ namespace DesafioFundamentos.Models
             // Verifica se o veículo existe
             if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
             {
-                Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
-                string Inputhoras = Console.ReadLine();
                 
-                // TODO: Pedir para o usuário digitar a quantidade de horas que o veículo permaneceu estacionado,
                 while(true)
                 {
 
+
                     Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
+                    string Inputhoras = Console.ReadLine();
 
                     if (int.TryParse(Inputhoras, out int horas))
                     {
